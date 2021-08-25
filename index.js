@@ -42,7 +42,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/index', function (req, res) {
-    res.render('login');
+    res.render('index.ejs');
 });
 
 router.get('/signup', function (req, res) {
