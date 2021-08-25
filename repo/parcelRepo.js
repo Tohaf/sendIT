@@ -1,3 +1,5 @@
+const { MongoClient } = require ('mongodb');
+
 let fs = require ('fs');
 
 let FILE_NAME = './assets/parcel.json';
@@ -95,6 +97,29 @@ let parcelRepo = {
                 }
             }
 
+        });
+    },
+    update: function (newData, FullName, resolve, reject) {
+        fs.readFile(FILE_NAME, function (err, data) {
+            if (err){
+                reject(err);
+            }
+            else{
+                let pies = JSON.parse(data);
+                let pie = pies.find(p => p.FullName == FullName);
+                if (pies) {
+                    Object.assign(pie, newData);
+                    fs.writeFile(FILE_NAME, JSON.stringify(pies), function(err){
+                        if(err){
+                            reject(err);                            
+                        }
+                        else{
+                            resolve(newData);
+
+                        }
+                    });
+                }
+            }
         });
     }
 };
