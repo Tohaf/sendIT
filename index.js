@@ -41,7 +41,7 @@ router.get('/', function (req, res) {
     res.render('index.ejs');
 });
 
-router.get('/login', function (req, res) {
+router.get('/index', function (req, res) {
     res.render('login');
 });
 
@@ -153,7 +153,7 @@ router.post('/signup', function (req, res, next) {
 });
 
 
-router.post('/login', function (req, res, next) {
+router.post('/index', function (req, res, next) {
     let login = {
         "username": req.body.username,
         "password": req.body.password
