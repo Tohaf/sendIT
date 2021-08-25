@@ -2,7 +2,7 @@ const { MongoClient } = require ('mongodb');
 
 let fs = require ('fs');
 
-let FILE_NAME = './assets/parcel.json';
+let FILE_NAME = 'DATABASE_URL';
 
 
 let parcelRepo = {
